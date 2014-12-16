@@ -1,0 +1,25 @@
+<%= form_for(@super_partner) do |f| %>
+  <% if @super_partner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@super_partner.errors.count, "error") %> prohibited this super_partner from being saved:</h2>
+
+      <ul>
+      <% @super_partner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :code %><br>
+    <%= f.text_field :code %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

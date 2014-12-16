@@ -1,0 +1,13 @@
+<p>
+  <strong>Latest Terms and Conditions:</strong>
+  <%= partner.latest_term.text.html_safe %>
+</p>
+
+<p>
+  <strong>Historical ToC</strong>
+  <ul>
+    <% partner.terms_desc.each do |term| %>
+      <li><%= link_to term.date_start, term %></li>
+    <% end %>
+  </ul>
+</p>

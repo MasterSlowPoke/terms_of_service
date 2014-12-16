@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TermsOfService</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav>
+    <ul>
+      <%= content_tag :li, link_to("Home", root_path) %>
+      <%= content_tag :li, link_to("Terms", terms_path) %>
+      <%= content_tag :li, link_to("Partners", partners_path) %>
+      <%= content_tag :li, link_to("Super Partners", super_partners_path) %>
+  </nav>
+  <%= yield %>
+
+</body>
+</html>

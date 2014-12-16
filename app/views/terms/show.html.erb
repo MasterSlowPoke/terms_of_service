@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date start:</strong>
+  <%= @term.date_start %>
+</p>
+
+<p>
+  <strong>Date end:</strong>
+  <%= @term.date_end %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @term.text.html_safe %>
+</p>
+
+<p>
+  <strong>Change message:</strong>
+  <%= @term.change_message %>
+</p>
+
+<p>
+  <strong>Partners</strong>
+  <br>
+  <% @term.partners.each do |p| %>
+    <%= link_to "#{p.name} - #{p.code}", p %><br>
+  <% end %>
+</p>
+
+<p>
+  <strong>Super Partners</strong>
+  <br>
+  <% @term.super_partners.each do |p| %>
+    <%= link_to "#{p.name} - #{p.code}", p %><br>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_term_path(@term) %> |
+<%= link_to 'Back', terms_path %>

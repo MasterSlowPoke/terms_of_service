@@ -1,0 +1,27 @@
+<h1>Listing super_partners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @super_partners.each do |super_partner| %>
+      <tr>
+        <td><%= super_partner.name %></td>
+        <td><%= super_partner.code %></td>
+        <td><%= link_to 'Show', super_partner %></td>
+        <td><%= link_to 'Edit', edit_super_partner_path(super_partner) %></td>
+        <td><%= link_to 'Destroy', super_partner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Super partner', new_super_partner_path %>

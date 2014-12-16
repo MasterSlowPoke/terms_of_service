@@ -1,0 +1,22 @@
+<h1>Terms of Service Viewer<%= " for #{@partner.name}" if @term %></h1>
+<% if @term %>
+  <h3>Effective <strong><%= @term.date_start.strftime("%A, %B %e, %Y ") %></strong>
+  <p><%= @term.text.html_safe %></p>
+<% else %>
+  <p>Select a Partner or Super Partner to see their terms of service</p>
+<% end %>
+
+<nav>
+  <ul>
+    <li><strong>Partners</strong></li>
+    <% @partners.each do |partner| %>
+      <%= content_tag :li, link_to(partner.code, root_path(partner_id: partner.id)) %>
+    <% end %>
+  </ul>
+  <ul>
+    <li><strong>Super Partners</strong></li>
+    <% @super_partners.each do |s_partner| %>
+      <%= content_tag :li, link_to(s_partner.code, root_path(super_partner_id: s_partner.id)) %>
+    <% end %>
+  </ul>
+</nav>

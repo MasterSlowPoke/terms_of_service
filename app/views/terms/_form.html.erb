@@ -1,0 +1,50 @@
+<%= form_for(@term) do |f| %>
+  <% if @term.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@term.errors.count, "error") %> prohibited this term from being saved:</h2>
+
+      <ul>
+      <% @term.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date_start %><br>
+    <%= f.datetime_select :date_start %>
+  </div>
+  <div class="field">
+    <%= f.label :date_end %><br>
+    <%= f.datetime_select :date_end %>
+  </div>
+  <div class="field">
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </div>
+  <div class="field">
+    <%= f.label :change_message %><br>
+    <%= f.text_area :change_message %>
+  </div>
+  <div class="field">
+    <%= f.label :partners %>
+    <br>
+    <% @partners.each do |p| %>
+      <%= label_tag p.name %>
+      <%= check_box_tag 'partners[]', p.id, @term.partners.include?(p) %><br>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :super_partners %>
+    <br>
+    <% @super_partners.each do |p| %>
+      <%= label_tag p.name %>
+      <%= check_box_tag 'super_partners[]', p.id, @term.super_partners.include?(p) %><br>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
